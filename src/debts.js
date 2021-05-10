@@ -32,12 +32,7 @@ export const DebtList = (props) => (
   <List {...props} filters={<DebtFilter />}>
     <Datagrid>
       <TextField source="id" />
-      <ReferenceField
-        optionValue="idUsuario"
-        label="User"
-        source="userId"
-        reference="users"
-      >
+      <ReferenceField label="User" source="userId" reference="users">
         <TextField source="name" />
       </ReferenceField>
       <TextField source="motivo" />
@@ -55,12 +50,7 @@ export const DebtEdit = (props) => (
   <Edit title={<DebtTitle />} {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
-      <ReferenceInput
-        optionValue="idUsuario"
-        label="User"
-        source="userId"
-        reference="users"
-      >
+      <ReferenceInput label="User" source="userId" reference="users">
         <SelectInput optionText="name" />
       </ReferenceInput>
       <TextInput source="motivo" />

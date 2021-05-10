@@ -154,7 +154,6 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
         data: responses.map((response) => response.json)
       }));
     }
-    console.log(type);
     const { url, options } = convertDataRequestToHTTP(type, resource, params);
     return httpClient(url, options).then((response) =>
       convertHTTPResponse(response, type, resource, params)

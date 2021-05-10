@@ -34,14 +34,6 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
   const convertDataRequestToHTTP = (type, resource, params) => {
     let url = "";
     const options = {};
-
-    if (resource === "debts") {
-      options["uuid"] = "7a46dc90-dd52-453d-b19e-db7ed04479b6";
-      apiUrl = "https://provadev.xlab.digital/api/v1";
-      resource = "dividas";
-    } else {
-      apiUrl = "https://jsonplaceholder.typicode.com";
-    }
     switch (type) {
       case GET_LIST: {
         const { page, perPage } = params.pagination;

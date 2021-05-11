@@ -32,10 +32,10 @@ export const DebtList = (props) => (
   <List {...props} filters={<DebtFilter />}>
     <Datagrid>
       <TextField source="id" />
-      <ReferenceField label="User" source="userId" reference="users">
+      <ReferenceField label="User" source="idUsuario" reference="users">
         <TextField source="name" />
       </ReferenceField>
-      <TextField source="title" />
+      <TextField source="motivo" />
       <EditButton />
       <ShowButton />
     </Datagrid>
@@ -50,11 +50,11 @@ export const DebtEdit = (props) => (
   <Edit title={<DebtTitle />} {...props}>
     <SimpleForm>
       <TextInput disabled source="id" />
-      <ReferenceInput label="User" source="userId" reference="users">
+      <ReferenceInput label="User" source="idUsuario" reference="users">
         <SelectInput optionText="name" />
       </ReferenceInput>
-      <TextInput source="title" />
-      <TextInput multiline source="body" />
+      <TextInput source="motivo" />
+      <TextInput source="valor" />
     </SimpleForm>
   </Edit>
 );
@@ -62,11 +62,16 @@ export const DebtEdit = (props) => (
 export const DebtCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <ReferenceInput label="User" source="userId" reference="users">
+      <ReferenceInput
+        optionValue="idUsuario"
+        label="User"
+        source="userId"
+        reference="users"
+      >
         <SelectInput optionText="name" />
       </ReferenceInput>
-      <TextInput source="title" />
-      <TextInput multiline source="body" />
+      <TextInput source="motivo" />
+      <TextInput source="valor" />
     </SimpleForm>
   </Create>
 );
@@ -74,9 +79,8 @@ export const DebtCreate = (props) => (
 export const DebtShow = (props) => (
   <Show {...props}>
     <SimpleShowLayout>
-      <TextField source="title" />
-      <TextField source="teaser" />
-      <RichTextField source="body" />
+      <TextField source="motivo" />
+      <TextField source="valor" />
       <DateField label="Publication date" source="created_at" />
     </SimpleShowLayout>
   </Show>
